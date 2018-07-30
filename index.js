@@ -15,7 +15,9 @@ function validateEmail(email) {
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+app.get('/', (req, res) => {
+    res.send({message: 'HOME'});
+})
 app.post('/newsletter', (req, res) => {
     let email = req.body.email;
     if(validateEmail(email)) {
@@ -32,10 +34,14 @@ app.get('/emails', (req, res) => {
     });
 });
 
-app
-
 app.get('/properties', (req, res) => {
-    res.send()
+    res.send(properties);
 });
+
+
+app.get('*', (req, res) => {
+    res.send({message: 'hey'});
+});
+
 
 app.listen(5000, () => console.log(`listening at port 5000`));
