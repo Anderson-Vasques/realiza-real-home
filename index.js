@@ -6,6 +6,8 @@ const properties = require('./properties');
 
 let emails = [];
 
+const PORT = process.env.PORT || 5000
+
 
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -44,4 +46,4 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(5000, () => console.log(`listening at port 5000`));
+app.listen(PORT, () => console.log(`listening at port ${PORT}`));
